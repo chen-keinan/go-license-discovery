@@ -4,6 +4,7 @@ The license discovery is an open-source lib and set of tools that can analyze li
 This library encapsulate logic from 2 best licenses detection libraries :
 
 License Classifier : https://github.com/google/licenseclassifier
+
 go-license-detector : https://github.com/src-d/go-license-detector
 
 In Addition, this library uses :
