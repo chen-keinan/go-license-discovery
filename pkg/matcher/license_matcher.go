@@ -53,7 +53,7 @@ func (ld LicenseDiscover) MatchLicenseTxt(licenseTxt string) []string {
 			return licenses
 		}
 	}
-	licenses := GetLicenseFromDetector(licenseTxt, licSha)
+	licenses := ld.GetLicenseFromDetector(licenseTxt, licSha)
 	if len(licenses) > 0 {
 		return licenses
 	}
@@ -86,8 +86,8 @@ func (df DiscoveryFiler) PathsAreAlwaysSlash() bool {
 	return false
 }
 
-//GetLicenseFromDetector check license from detector
-func GetLicenseFromDetector(licenseTxt string, licSha string) []string {
+//GetLicenseFromDetector check license from detector and uses cache for better performance
+func (ld LicenseDiscover) GetLicenseFromDetector(licenseTxt string, licSha string) []string {
 	set := utils.NewSet()
 	if len(licSha) == 0 {
 		licSha = utils.LicenseToSha256(licenseTxt)
@@ -118,13 +118,13 @@ func GetLicenseFromDetector(licenseTxt string, licSha string) []string {
 }
 
 //GetPomCommentLicense read licenses which presented as a comment in the pom file
-func GetPomCommentLicense(pomTxt string) string {
+func (ld LicenseDiscover) GetPomCommentLicense(pomTxt string) string {
 	pomComments := utils.ReadPomComments(pomTxt)
 	if len(pomComments) == 0 {
 		return utils.LicenseUnknown
 	}
 	tLicense := strings.TrimSpace(pomComments)
-	lic := GetLicenseFromDetector(tLicense, utils.EmptyString)
+	lic := ld.GetLicenseFromDetector(tLicense, utils.EmptyString)
 	if len(lic) > 0 {
 		return lic[0]
 	}

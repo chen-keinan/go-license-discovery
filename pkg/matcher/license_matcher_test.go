@@ -73,7 +73,7 @@ func TestMatchLicenseTxtWithDetector(t *testing.T) {
 }
 
 func TestMatchLicenseTxtWithPom(t *testing.T) {
-	_, err := NewLicenseMatcher(".")
+	ld, err := NewLicenseMatcher(".")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -81,7 +81,7 @@ func TestMatchLicenseTxtWithPom(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	}
-	lic := GetPomCommentLicense(data)
+	lic := ld.GetPomCommentLicense(data)
 	assert.True(t, lic == "Apache-2.0")
 }
 

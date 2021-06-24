@@ -13,3 +13,4 @@
 *.out
 .idea/
 go-license-discovery.iml
+coverage.md

@@ -2,32 +2,35 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/chen-keinan/go-archive-extractor/blob/master/LICENSE)
 <img src="./pkg/img/coverage_badge.png" alt="test coverage badge">
 [![Gitter](https://badges.gitter.im/beacon-sec/community.svg)](https://gitter.im/beacon-sec/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
 # go-license-discovery
 
-The license discovery is an open-source lib and set of tools that can analyze license text to determine what type of license it contains.
+The license discovery is an open-source lib and set of tools that can analyze license text to determine what type of
+license it contains.
 
-It searches for license texts in a file and compares them to an archive of known licenses
-This library encapsulate logic from 2 best licenses detection libraries :
+It searches for license texts in a file and compares them to an archive of known licenses This library encapsulate logic
+from 2 best licenses detection libraries :
 
 License Classifier : https://github.com/google/licenseclassifier
 
 go-license-detector : https://github.com/src-d/go-license-detector
 
 In Addition, this library uses :
-checksum-based cache to have better performance detection of licenses which already been met
-analyzed pom file to detect licenses which presented in the pom as a comment
-
+checksum-based cache to have better performance detection of licenses which already been met analyzed pom file to detect
+licenses which presented in the pom as a comment
 
 * [Installation](#installation)
 * [Supported Licenses](#supported-licenses)
- * [Usage](#usage)
+* [Usage](#usage)
 
 ## Installation
+
 ```
 go get github.com/chen-keinan/go-license-discovery
 ```
 
 ## Supported Licenses
+
 - License.txt
 - License.md
 - License within pom file comments
@@ -35,15 +38,28 @@ go get github.com/chen-keinan/go-license-discovery
 - Multi license file
 
 ## Usage :
-###  Copy licenses.db file: 
+
+### Copy licenses.db file:
+
 ```
 copy licenses.db (located under pkg/matcher/licenses/licenses.db) file to <licenses folder>
 ```
-### Read License from pom file comments 
+
+### Read License from pom file comments
+
 ```
-matcher.GetPomCommentLicense(pomFile)
+func main() {
+    lm, err := matcher.NewLicenseMatcher("/licenses/")
+        if err != nil {
+	        fmt.Print(err.Error())
+	}
+    lic:=lm.matcher.GetPomCommentLicense(pomFile)
+    fmt.Print(lic)
+  }
 ```
+
 ### Example
+
 ```
 import (
 	"fmt"
