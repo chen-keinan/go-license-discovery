@@ -13,31 +13,31 @@ const (
 )
 
 func TestInitLicenseMatcherWithNoLicensesDB(t *testing.T) {
-	err := InitLicenseMatcher("unknown folder")
+	_, err := NewLicenseMatcher("unknown folder")
 	if err == nil {
 		t.Fatal(err)
 	}
 }
 
 func TestInitLicenseMatcherWithLicensesDB(t *testing.T) {
-	err := InitLicenseMatcher(".")
+	_, err := NewLicenseMatcher(".")
 	if err != nil {
 		t.Fatal(err)
 	}
 }
 
 func TestMatchLicenseTxtNoLicenseFile(t *testing.T) {
-	err := InitLicenseMatcher(".")
+	lc, err := NewLicenseMatcher(".")
 	if err != nil {
 		t.Fatal(err)
 	}
-	lics := MatchLicenseTxt(NoLicense)
+	lics := lc.MatchLicenseTxt(NoLicense)
 	assert.True(t, len(lics) == 0 || lics[0] == "Unknown")
 
 }
 
 func TestMatchLicenseTxtWithClassifier(t *testing.T) {
-	err := InitLicenseMatcher(".")
+	lc, err := NewLicenseMatcher(".")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -55,12 +55,12 @@ func TestMatchLicenseTxtWithClassifier(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	lics := MatchLicenseTxt(string(data))
+	lics := lc.MatchLicenseTxt(string(data))
 	assert.True(t, len(lics) == 6)
 }
 
 func TestMatchLicenseTxtWithDetector(t *testing.T) {
-	err := InitLicenseMatcher(".")
+	lc, err := NewLicenseMatcher(".")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -68,12 +68,12 @@ func TestMatchLicenseTxtWithDetector(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	}
-	lics := MatchLicenseTxt(data)
+	lics := lc.MatchLicenseTxt(data)
 	assert.True(t, len(lics) == 1)
 }
 
 func TestMatchLicenseTxtWithPom(t *testing.T) {
-	err := InitLicenseMatcher(".")
+	_, err := NewLicenseMatcher(".")
 	if err != nil {
 		t.Fatal(err)
 	}

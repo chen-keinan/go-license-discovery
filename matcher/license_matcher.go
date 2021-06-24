@@ -13,29 +13,33 @@ import (
 /**
  * @author chenk on 29/08/2017.
  */
-var lc *licenseclassifier.License
 
-var extractedLicenseCache *lru.Cache = lru.New(1000, lru.WithExpiry(168*time.Hour))
+//LicenseDiscover object
+type LicenseDiscover struct {
+	lc *licenseclassifier.License
+}
 
-//InitLicenseMatcher read licenses db and instantiate the classifier
-func InitLicenseMatcher(licensesFolder string) error {
+var extractedLicenseCache = lru.New(1000, lru.WithExpiry(168*time.Hour))
+
+//NewLicenseMatcher read licenses db and instantiate the classifier
+func NewLicenseMatcher(licensesFolder string) (*LicenseDiscover, error) {
 	licenseclassifier.LicensesDir(licensesFolder + utils.Licenses)
 	var err error
-	lc, err = licenseclassifier.New(0.8)
+	lcn, err := licenseclassifier.New(0.8)
 	if err != nil {
-		return err
+		return nil, err
 	}
-	return nil
+	return &LicenseDiscover{lc: lcn}, nil
 }
 
 //MatchLicenseTxt try to match license txt to known spdx license
 // 1st try to match to license classifier and then to license detector
-func MatchLicenseTxt(licenseTxt string) []string {
+func (ld LicenseDiscover) MatchLicenseTxt(licenseTxt string) []string {
 	licSha := utils.LicenseToSha256(licenseTxt)
 	if val, ok := extractedLicenseCache.Get(licSha); ok {
 		return val.([]string)
 	}
-	n := lc.MultipleMatch(licenseTxt, true)
+	n := ld.lc.MultipleMatch(licenseTxt, true)
 	set := utils.NewSet()
 	if len(n) > 0 {
 		for _, m := range n {
