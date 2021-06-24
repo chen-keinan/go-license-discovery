@@ -1,6 +1,7 @@
 package matcher
 
 import (
+	"fmt"
 	"github.com/stretchr/testify/assert"
 	"io/ioutil"
 	"os"
@@ -41,7 +42,12 @@ func TestMatchLicenseTxtWithClassifier(t *testing.T) {
 		t.Fatal(err)
 	}
 	f, err := os.Open("./fixtures/Multi_LICENSE.txt")
-	defer f.Close()
+	defer func() {
+		err = f.Close()
+		if err != nil {
+			fmt.Print(err)
+		}
+	}()
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -81,7 +87,12 @@ func TestMatchLicenseTxtWithPom(t *testing.T) {
 
 func ReadLicense(path string) (string, error) {
 	f, err := os.Open(path)
-	defer f.Close()
+	defer func() {
+		err = f.Close()
+		if err != nil {
+			fmt.Print(err)
+		}
+	}()
 
 	if err != nil {
 		return "", err

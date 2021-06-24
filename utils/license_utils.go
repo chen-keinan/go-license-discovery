@@ -9,14 +9,19 @@ import (
 	"strings"
 )
 
+//LicenseToSha256 return license sha256
 func LicenseToSha256(value string) string {
 	h := sha256.New()
-	h.Write([]byte(value))
+	_, err := h.Write([]byte(value))
+	if err != nil {
+		return ""
+	}
 	return fmt.Sprintf("%x", (h.Sum(nil)))
 }
 
+//ReadPomComments read license from pom comments
 func ReadPomComments(pomData string) string {
-	reader := strings.NewReader(string(pomData))
+	reader := strings.NewReader(pomData)
 	closer := ioutil.NopCloser(reader)
 	scanner := bufio.NewScanner(closer)
 	var buffer bytes.Buffer
@@ -44,6 +49,9 @@ func ReadPomComments(pomData string) string {
 			break
 		}
 	}
-	closer.Close()
+	err := closer.Close()
+	if err != nil {
+		return ""
+	}
 	return comment
 }
