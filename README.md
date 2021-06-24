@@ -55,6 +55,7 @@ func main() {
 	if err != nil {
 		fmt.Print(err.Error())
 	}
-	lm.MatchLicenseTxt("LICENSE.md")
+	matchedLicenses:=lm.MatchLicenseTxt("LICENSE.md")
+	fmt.Print(matchedLicenses)
 }
 ```
