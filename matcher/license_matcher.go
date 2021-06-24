@@ -1,27 +1,12 @@
 package matcher
 
 import (
-	_ "github.com/ekzhu/minhash-lsh"
-	_ "github.com/hhatto/gorst"
-	_ "github.com/jdkato/prose/chunk"
-	"github.com/jfrog/go-license-discovery/utils"
+	"github.com/chen-keinan/go-license-detector/licensedb"
+	"github.com/chen-keinan/go-license-detector/licensedb/filer"
+	"github.com/chen-keinan/go-license-discovery/utils"
 	"github.com/jfrog/gofrog/lru"
 	"github.com/jfrog/licenseclassifier/licenseclassifier"
-	_ "github.com/pkg/errors"
-	_ "golang.org/x/exp/rand"
-	_ "gonum.org/v1/gonum/stat/distuv"
-	"gopkg.in/goyy/goyy.v0/util/strings"
-	_ "gopkg.in/russross/blackfriday.v2"
-	_ "gopkg.in/src-d/go-billy.v4/memfs"
-	_ "gopkg.in/src-d/go-billy.v4/osfs"
-	_ "gopkg.in/src-d/go-git.v4/plumbing"
-	_ "gopkg.in/src-d/go-git.v4/plumbing/filemode"
-	_ "gopkg.in/src-d/go-git.v4/plumbing/object"
-	_ "gopkg.in/src-d/go-git.v4/plumbing/storer"
-	_ "gopkg.in/src-d/go-git.v4/storage/filesystem"
-	_ "gopkg.in/src-d/go-git.v4/storage/memory"
-	"gopkg.in/src-d/go-license-detector.v2/licensedb"
-	"gopkg.in/src-d/go-license-detector.v2/licensedb/filer"
+	"strings"
 	"time"
 )
 
@@ -85,6 +70,9 @@ func (df DiscoveryFiler) ReadDir(path string) ([]filer.File, error) {
 func (df DiscoveryFiler) Close() {
 
 }
+func (df DiscoveryFiler) PathsAreAlwaysSlash() bool {
+	return false
+}
 
 func GetLicenseFromDetector(licenseTxt string, licSha string) []string {
 	set := utils.NewSet()
@@ -103,8 +91,8 @@ func GetLicenseFromDetector(licenseTxt string, licSha string) []string {
 		var lic string
 		if len(licMap) > 0 {
 			for key, value := range licMap {
-				if maxScore < value && value > 0.8 {
-					maxScore = value
+				if maxScore < value.Confidence && value.Confidence > 0.8 {
+					maxScore = value.Confidence
 					lic = key
 				}
 			}
