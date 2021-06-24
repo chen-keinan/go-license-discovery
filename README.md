@@ -37,7 +37,7 @@ go get github.com/chen-keinan/go-license-discovery
 ## Usage :
 ###  Copy licenses.db file: 
 ```
-copy licenses.db (located under matcher/licenses/licenses.db) file to <licenses folder>
+copy licenses.db (located under pkg/matcher/licenses/licenses.db) file to <licenses folder>
 ```
 ### Read License from pom file comments 
 ```
