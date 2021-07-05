@@ -58,7 +58,7 @@ func main() {
   }
 ```
 
-### Example
+### Example:
 
 ```
 import (
