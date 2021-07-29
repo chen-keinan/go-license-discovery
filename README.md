@@ -45,7 +45,7 @@ go get github.com/chen-keinan/go-license-discovery
 copy licenses.db (located under pkg/matcher/licenses/licenses.db) file to <licenses folder>
 ```
 
-### Read License from pom file comments
+### Extract License from pom file comments
 
 ```
 func main() {
