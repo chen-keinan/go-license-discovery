@@ -5,7 +5,7 @@
 
 # go-license-discovery
 
-The license discovery is an open-source lib and set of tools that can analyze license text to determine what type of
+The license discovery is an open-source lib that can analyze license text to determine what type of
 license it contains.
 
 It searches for license texts in a file and compares them to an archive of known licenses This library encapsulate logic
