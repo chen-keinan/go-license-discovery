@@ -17,7 +17,7 @@ go-license-detector : https://github.com/src-d/go-license-detector
 
 In Addition, this library uses :
 checksum-based cache to have better performance detection of licenses which already been met analyzed pom file to detect
-licenses which presented in the pom as a comment
+licenses which presented in the pom as a comment.
 
 * [Installation](#installation)
 * [Supported Licenses](#supported-licenses)
