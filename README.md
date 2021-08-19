@@ -3,6 +3,7 @@
 <img src="./pkg/img/coverage_badge.png" alt="test coverage badge">
 [![Gitter](https://badges.gitter.im/beacon-sec/community.svg)](https://gitter.im/beacon-sec/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
+<br><img src="./pkg/img/lic_disc.png" width="300" alt="lic_disc.png logo"><br>
 # go-license-discovery
 
 The license discovery is an open-source lib and set of tools that can analyze license text to determine what type of
