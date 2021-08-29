@@ -26,7 +26,7 @@ licenses which presented in the pom as a comment.
 
 ## Installation
 
-```
+```shell
 go get github.com/chen-keinan/go-license-discovery
 ```
 
