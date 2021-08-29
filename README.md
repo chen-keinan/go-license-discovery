@@ -42,13 +42,13 @@ go get github.com/chen-keinan/go-license-discovery
 
 ### Copy licenses.db file:
 
-```
+```shell
 copy licenses.db (located under pkg/matcher/licenses/licenses.db) file to <licenses folder>
 ```
 
 ### Extract License from pom file comments
 
-```
+```go
 func main() {
     lm, err := matcher.NewLicenseMatcher("/licenses/")
         if err != nil {
@@ -61,7 +61,7 @@ func main() {
 
 ### Example:
 
-```
+```go
 import (
 	"fmt"
 	"github.com/chen-keinan/go-license-discovery/matcher"
