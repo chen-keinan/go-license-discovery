@@ -1,5 +1,5 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/chen-keinan/go-license-discovery)](https://goreportcard.com/report/github.com/chen-keinan/go-license-discovery)
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/chen-keinan/go-archive-extractor/blob/master/LICENSE)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/chen-keinan/go-license-discovery/blob/master/LICENSE)
 <img src="./pkg/img/coverage_badge.png" alt="test coverage badge">
 [![Gitter](https://badges.gitter.im/beacon-sec/community.svg)](https://gitter.im/beacon-sec/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
@@ -7,7 +7,7 @@
 # go-license-discovery
 
 The license discovery is an open-source lib that can analyze license text to determine what type of
-license it contains.
+license it contains
 
 It searches for license texts in a file and compares them to an archive of known licenses This library encapsulate logic
 from 2 best licenses detection libraries :
@@ -26,7 +26,7 @@ licenses which presented in the pom as a comment.
 
 ## Installation
 
-```
+```shell
 go get github.com/chen-keinan/go-license-discovery
 ```
 
@@ -42,13 +42,13 @@ go get github.com/chen-keinan/go-license-discovery
 
 ### Copy licenses.db file:
 
-```
+```shell
 copy licenses.db (located under pkg/matcher/licenses/licenses.db) file to <licenses folder>
 ```
 
 ### Extract License from pom file comments
 
-```
+```go
 func main() {
     lm, err := matcher.NewLicenseMatcher("/licenses/")
         if err != nil {
@@ -61,7 +61,7 @@ func main() {
 
 ### Example:
 
-```
+```go
 import (
 	"fmt"
 	"github.com/chen-keinan/go-license-discovery/matcher"
