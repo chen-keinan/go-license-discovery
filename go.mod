@@ -8,7 +8,7 @@ require (
 	github.com/chen-keinan/go-license-detector v1.0.4
 	github.com/jfrog/gofrog v1.0.6
 	github.com/jfrog/licenseclassifier/licenseclassifier v0.0.0-20190328120639-b50cce22368c
-	github.com/stretchr/testify v1.7.0
+	github.com/stretchr/testify v1.7.1
 )
 
 require (
