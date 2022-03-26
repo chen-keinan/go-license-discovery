@@ -126,8 +126,8 @@ github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99/go.mod h1:1lJo3i
 github.com/jdkato/prose v1.1.0 h1:LpvmDGwbKGTgdCH3a8VJL56sr7p/wOFPw/R4lM4PfFg=
 github.com/jdkato/prose v1.1.0/go.mod h1:jkF0lkxaX5PFSlk9l4Gh9Y+T57TqUZziWT7uZbW5ADg=
 github.com/jessevdk/go-flags v1.4.0/go.mod h1:4FA24M0QyGHXBuZZK/XkWh8h0e1EYbRYJSGM75WSRxI=
-github.com/jfrog/gofrog v1.0.6 h1:yUDxSCw8gTK6vC4PvtG0HTnEOQJSZ+O4lWGCgkev1nU=
-github.com/jfrog/gofrog v1.0.6/go.mod h1:HkDzg+tMNw23UryoOv0+LB94BzYcl6MCIoz8Tmlb+s8=
+github.com/jfrog/gofrog v1.1.1 h1:uRjeZWidQl4FmKP4Zpj5hSKJp3gSIWW9VUwbQdVEVRU=
+github.com/jfrog/gofrog v1.1.1/go.mod h1:9YN5v4LlsCfLIXpwQnzSf1wVtgjdHM20FzuIu58RMI4=
 github.com/jfrog/licenseclassifier/licenseclassifier v0.0.0-20190328120639-b50cce22368c h1:ZW8Rcmi4tSBmhwe/0pg4xInSa1W26IwZ0i8c7A+ueYI=
 github.com/jfrog/licenseclassifier/licenseclassifier v0.0.0-20190328120639-b50cce22368c/go.mod h1:g+ucFYA+zFZ9UBWChqboz7iF1fp3Caznv3ChkhyU5cw=
 github.com/jfrog/licenseclassifier/stringclassifier v0.0.0-20190328120639-b50cce22368c h1:9RZqtYN8PoE/PS2f77XBb8hGZ7pP3HCCKYQfXcbainE=
