@@ -6,9 +6,9 @@ replace github.com/chen-keinan/go-license-detector => github.com/chen-keinan/go-
 
 require (
 	github.com/chen-keinan/go-license-detector v1.0.4
-	github.com/jfrog/gofrog v1.1.1
+	github.com/jfrog/gofrog v1.2.2
 	github.com/jfrog/licenseclassifier/licenseclassifier v0.0.0-20190328120639-b50cce22368c
-	github.com/stretchr/testify v1.7.1
+	github.com/stretchr/testify v1.8.0
 )
 
 require (
@@ -24,7 +24,7 @@ require (
 	github.com/kevinburke/ssh_config v0.0.0-20190725054713-01f96b0aa0cd // indirect
 	github.com/mitchellh/go-homedir v1.1.0 // indirect
 	github.com/montanaflynn/stats v0.6.6 // indirect
-	github.com/pkg/errors v0.8.1 // indirect
+	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/russross/blackfriday/v2 v2.0.1 // indirect
 	github.com/sergi/go-diff v1.0.0 // indirect
@@ -44,5 +44,5 @@ require (
 	gopkg.in/src-d/go-git.v4 v4.13.1 // indirect
 	gopkg.in/src-d/go-siva.v1 v1.8.0 // indirect
 	gopkg.in/warnings.v0 v0.1.2 // indirect
-	gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c // indirect
+	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
