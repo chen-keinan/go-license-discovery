@@ -8,7 +8,7 @@ require (
 	github.com/chen-keinan/go-license-detector v1.0.4
 	github.com/jfrog/gofrog v1.1.1
 	github.com/jfrog/licenseclassifier/licenseclassifier v0.0.0-20190328120639-b50cce22368c
-	github.com/stretchr/testify v1.7.1
+	github.com/stretchr/testify v1.8.1
 )
 
 require (
@@ -44,5 +44,5 @@ require (
 	gopkg.in/src-d/go-git.v4 v4.13.1 // indirect
 	gopkg.in/src-d/go-siva.v1 v1.8.0 // indirect
 	gopkg.in/warnings.v0 v0.1.2 // indirect
-	gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c // indirect
+	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
