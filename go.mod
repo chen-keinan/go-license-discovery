@@ -6,7 +6,7 @@ replace github.com/chen-keinan/go-license-detector => github.com/chen-keinan/go-
 
 require (
 	github.com/chen-keinan/go-license-detector v1.0.4
-	github.com/jfrog/gofrog v1.1.1
+	github.com/jfrog/gofrog v1.2.5
 	github.com/jfrog/licenseclassifier/licenseclassifier v0.0.0-20190328120639-b50cce22368c
 	github.com/stretchr/testify v1.8.1
 )
@@ -24,7 +24,7 @@ require (
 	github.com/kevinburke/ssh_config v0.0.0-20190725054713-01f96b0aa0cd // indirect
 	github.com/mitchellh/go-homedir v1.1.0 // indirect
 	github.com/montanaflynn/stats v0.6.6 // indirect
-	github.com/pkg/errors v0.8.1 // indirect
+	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/russross/blackfriday/v2 v2.0.1 // indirect
 	github.com/sergi/go-diff v1.0.0 // indirect
